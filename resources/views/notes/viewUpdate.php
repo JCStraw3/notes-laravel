@@ -27,7 +27,7 @@
 		<div class="header">
 			<?php if(isset($user)): ?>
 
-				<a href="/user/<?php echo $user->id ?>"><?php echo $user->name; ?></a>
+				<a href="/user/<?php echo htmlspecialchars($user->id); ?>"><?php echo htmlspecialchars($user->name); ?></a>
 				<a href="/notes">Notes</a>
 				<a href="/notes/create">Create Note</a>
 				<a href="/auth/logout">Sign Out</a>
@@ -39,14 +39,14 @@
 
 		<h1>Edit a Note</h1>
 
-		<form action='/notes/<?php echo $note->id; ?>' method='post'>
+		<form action='/notes/<?php echo htmlspecialchars($note->id); ?>' method='post'>
 			<input name='_method' value='patch' type='hidden' />
-			<input name='title' value='<?php echo $note->title; ?>' placeholder='Title' />
-			<input name='body' value='<?php echo $note->body; ?>' placeholder='Body' />
+			<input name='title' value='<?php echo htmlspecialchars($note->title); ?>' placeholder='Title' />
+			<input name='body' value='<?php echo htmlspecialchars($note->body); ?>' placeholder='Body' />
 			<button>Update Note</button>
 		</form>
 
-		<form action='/notes/<?php echo $note->id; ?>' method='post'>
+		<form action='/notes/<?php echo htmlspecialchars($note->id); ?>' method='post'>
 			<input name='_method' value='delete' type='hidden' />
 			<button>Delete Note</button>
 		</form>

@@ -27,7 +27,7 @@
 		<div class="header">
 			<?php if(isset($user)): ?>
 
-				<a href="/user/<?php echo $user->id ?>"><?php echo $user->name; ?></a>
+				<a href="/user/<?php echo htmlspecialchars($user->id); ?>"><?php echo htmlspecialchars($user->name); ?></a>
 				<a href="/notes">Notes</a>
 				<a href="/auth/logout">Sign Out</a>
 

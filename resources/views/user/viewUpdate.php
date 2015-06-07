@@ -27,7 +27,7 @@
 		<div class="header">
 			<?php if(isset($user)): ?>
 
-				<a href="/user/<?php echo $user->id ?>"><?php echo $user->name; ?></a>
+				<a href="/user/<?php echo htmlspecialchars($user->id); ?>"><?php echo htmlspecialchars($user->name); ?></a>
 				<a href="/notes">Notes</a>
 				<a href="/auth/logout">Sign Out</a>
 
@@ -38,10 +38,10 @@
 
 		<h1>Edit User Profile</h1>
 
-		<form action='/user/<?php echo $user->id; ?>' method='post'>
+		<form action='/user/<?php echo htmlspecialchars($user->id); ?>' method='post'>
 			<input name='_method' value='patch' type='hidden' />
-			<input name='name' value='<?php echo $user->name; ?>' placeholder='Name' />
-			<input name='email' value='<?php echo $user->email; ?>' placeholder='Email' />
+			<input name='name' value='<?php echo htmlspecialchars($user->name); ?>' placeholder='Name' />
+			<input name='email' value='<?php echo htmlspecialchars($user->email); ?>' placeholder='Email' />
 			<button>Update User Profile</button>
 		</form>
 
